@@ -1,143 +1,169 @@
 ---
 title: |
-  Span of control, transaction costs, and the structure of \
-  production chains 
-subtitle: Kikuchi, Nishimura, and Stachurski (2018)
+  Melitz 2003
+subtitle: The Impact of Trade on Intra-Industry Reallocations and Aggregate Industry Productivity
 author:
-  - name: José Ignacio González Rojas
-    affiliations: London School of Economics and Political Science
-    email: j.i.gonzalez-rojas@lse.ac.uk
+  - name: David
+    affiliations: LSE
 format:
   revealjs: 
     theme: slides.scss
     slide-number: true
     date-format: long
     width: 1920
-    height: 1080
+    height: 1300
     progress: true
     history: true
     html-math-method: mathjax
     embed-resources: true
-date: October 3, 2024
+date: October 9, 2024
 layout: default
 ---
 
 ## Research question
-What are the determinants of the number and size of firms and how are tasks allocated across firms in production chains coordinated by prices?
+How does trade shape domestic industry?
 
-Coase's (1937) explanation.  
+## Environment
+- Let $i,n$ index countries
+- Single Factor of Production: Labour $L$, competitive labour market, inelastic supply
+- Dynamic model - we study stationary equilibrium
 
-## Model 
-- Countable infinity of price-taking firms $i \in \{1, 2, \ldots\}$. 
-- Produce a single unit of a final good. 
+## Firms - Heterogenous in Productivity
+**Firm Decisions**
 
-::: {layout-ncol=2}
-![Recursive allocation of production tasks](figures/allocation.png)
+1. Sunk $f_e$ units of labor to set up
+2. Observe permenant productivity draw $\varphi$
+    + from exogenous distribution $g_i(\varphi)$ 
+3. Firm choose whether to produce or exit, if produce, whether to export or not
+    + per period, to sell to each market $n$, firm pays a fixed cost of $f_{ni}$ in labor
+      + equivalent to paying an upfront entry cost 
+    + additionally, iceberg trade cost $\tau_{ni}$
+      + need to send $\tau_{ni}$ unit from $i$ to sell 1 unit in $n$
 
-![Notation](figures/notation.png)
-:::
+Each period, there is an exogenous $\delta$ probability of firm death
 
-## Make-or-buy decision
-- Firm chooses upstream boundary, i.e., how far to integrate backward into the input production. 
-- Firms face two types of costs: 
+## Firms - Production
+Linear Production Function: $q = \varphi l$
 
-### In-house production costs
-- Diminishing returns to management. 
-- $c(\ell)$ is the cost of carrying out $\ell$ tasks in-house. 
-- $c(\cdot)$ is strictly increasing, strictly convex, and continuously differentiable. 
-- $c(0) = 0$, and $c'(0) > 0$ . 
+- MC: $\frac{w}{\varphi} = \frac{1}{\varphi}$
+    + constant
+    + wage $w$ normalized to 1
+      + will be equalized across symmetrical countries
 
-### Transaction costs
-- Buying and selling through the market. 
-- Wedge $\delta > 1$ between buyer's and seller's prices. "Deadweight loss." 
+## Demand - CES
+**Preference:** $C_n = [\int_{\omega \in \Sigma_n} c_n(\omega)^{\rho} d\omega]^{\frac{1}{\rho}}$, with $0<\rho<1$
 
-## Equilibrium
-Given 
+**Price Index:** $P_n = [\int_{\omega \in \Sigma_n} c_n(\omega)^{1-\sigma} d\omega]^{\frac{1}{1-\sigma}}$, with $\sigma = \frac{1}{1-\rho} >1$, i.e. the elasticity of substitution
 
-1. Price of good at each processing stage $p: [0, 1] \to \mathbb{R}_{+}$. 
-2. Feasible allocation of tasks $\{\ell_{i}\}_{i \in \mathbb{N}}$. 
-3. Profits $\pi_{i} = p(t_{i-1}) - c(\ell_{i}) - \delta p(t_{i})$, $t_{0} = 0$, and $t_{i} = t_{i-1} - \ell_{i}$. 
+Price Index is defined such that $C_n = R_n/P_n$, converting total revenue = total budget into utils.
 
-Then, $(p, \mathbf{\ell})$ is an equilibrium for the production chain if 
+Consumer optimization gives us demand: $c_n(\omega) =(\frac{p_n(\omega)}{P_n})^{-\sigma} (\frac{R_n}{P_n})$
 
-1. $p(0) = 0$. Zero profit for suppliers of initial inputs. 
-2. $\pi_i = 0$. Active firms make zero profits. 
-3. $p(s)\leq c(s-t) + \delta p(t) \; \forall s, t, \; 0 \leq s \leq t \leq 1$. No intention to deviate, and inactive firms cannot enter and make profits. 
+## Solving the Model
+1. Maximize profit in each market
+2. Given 1, decide on entry for each market
+3. Given 2, decide on whether enter or not as a firm
+4. Solve for equlibirums using the firm decisions from 3 by aggregating and impose market clearing conditions
 
-## Equilibrium exists and it's unique
-### Existence
-**Constructive proof:** 
 
-#### Price function
-$$T p(s) = \min_{t \in (0, s]} \{c(s-t) + \delta p(t)\} \; \forall s \in [0, 1]$$
 
-The operator $T$ has a unique fixed point. Then, we're done with $p^{*}(s)$. 
+## Firm Maximization
+Firms with productivity $\varphi$ from $i$ maxmizes profit in $n$
+ $$\max_{p(\varphi)}  \;  \pi_{ni}(\varphi) - f_{ni}$$  i.e.
+ $$\max_{p(\varphi)}  \;  p(\varphi)\tau_{ni}c_n(\varphi) - \frac{\tau_{ni}c_n(\varphi)}{\varphi} - f_{ni}$$
+FOC gives Inverse Elasticity Pricing: $p(\varphi) = \frac{1}{1-\frac{1}{\sigma}} \frac{1}{\varphi} = \frac{1}{\rho} \frac{1}{\varphi}$
 
-#### Feasible allocation
-Construct an allocation $\{\ell_{i}\}_{i \in \mathbb{N}}$ from the policy function $t^{*}(s)$. 
+1. $c_n$ demand from before
 
-## Equilibrium exists and it's unique
-#### Number of firms 
-$$n^{*} = \inf \{i \in \mathbb{N} | t^{*}_{i} = 0\} < \infty$$
+2. $p(\varphi)$ is gate price at $i$, price charged is $p_{ni} = p(\varphi)\tau_{ni}$
 
-then, $\{\ell_{i}\}_{i \in \mathbb{N}}$ is feasible and $(p, \mathbf{\ell})$ is an equilibrium for the production chain. $\square$
+## Exporting Decision
+Variable Profit increase in $p(\varphi)$, there exist a threshold $\varphi^{\star}_{ni}$ such that the firm is indifferent to enter $n$
 
-### Uniqueness
-**Intuition:** 
+![Threshold Productivity](figures/entry.png)
 
-- Another price function should be large enough to sustain nonnegative profits. Then, inactive firms could enter the market and make profits. Therefore, we would have another allocation. 
-- Conversely, if there was another price function that sustains the allocation, it eliminates all profit opportunities. Hence, that price function would be lower than the optimal one. 
+## Exporting Decision - Comparative Statics
+We can solve for $\varphi^{\star}_{ni}$ explicitly, plug the pricing equation and demand into the variable profit and we can obtain:
+$$\varphi^{\star}_{ni} = (\frac{\sigma}{\rho^{\sigma - 1}}\frac{f_{ni}\tau_{ni}^{\sigma-1}}{R_n P^{\sigma-1}_{n}})^{\frac{1}{1-\sigma}}$$
+increasing in trade costs. (This is useful later).
 
-## Features
-### Price of the final good
-The minimal cost of producing the whole product when all firms make zero profits
-and transaction costs cannot be avoided.
-$$p^{*}(1) = c(\ell_{1}^{*}) + \delta c(\ell_{2}^{*}) + \cdots + \delta^{n-1} c(\ell_{n}^{*})$$
+## Entry Decision
+We can now determine the firm value. Given a $\varphi$, the per period profit across market is
+$$ \pi_{i}(\varphi) = \sum_{n}1[\varphi \geq \varphi^{\star}_{ni} ][\pi_{ni}(\varphi) - f_{ni}]$$
+We can then discount this value and write the steady state firm value as:
+$$ v_{i}(\varphi) = \max \{ 0,\frac{\pi_{i}(\varphi)}{\delta} \}$$
 
-### Marginal conditions
-#### Envelope condition
-The marginal price of stage $s$ is equal to the marginal cost of the range of tasks carried on up to $s$. 
-$$p'^{*}(s) = c'^{*}(\ell^{*}(s))$$
+Before setting up the firm, the expected firm value is therefore:
+$$ \bar{v_{i}} = \int v_{i}(\varphi)g_{i}(\varphi)d \varphi$$
 
-## Features
-### Marginal conditions
-#### Coase-Euler equation
-The marginal in-house cost per task at a given firm is equal to that of its
-upstream partner multiplied by gross transaction cost. 
-$$\delta c'^{*}(\ell^{*}_{i+1})= c'^{*}(\ell^{*}_{i})$$
 
-### Downstream firms are always larger than upstream firms. 
-- Since the equilibrium price function is strictly convex, the marginal cost of these inputs rises as we move from upstream to downstream. 
-- Hence downstream firms choose to do more in-house.
+## General Equilibrium - Basically
+1. N+1 symmetric countries
+2. $f_x = f_{ni}$ for $n \neq i$ and $f = f_{ii}$
+3. $\tau = \tau_{ni}$ for $n \neq i$ and $1 = \tau_{ii}$
 
-## Comparative statics
-The higher the transactions costs $\delta$, 
 
-### Higher price
-![Price function](figures/price.png)
+## General Equilibrium - Basically
+Two conditions must hold
 
-## Comparative statics
-The higher the transactions costs $\delta$, 
+1. Free Entry: $$ \bar{v_{i}} = f_{e} $$
+    + Entry Decision - No Profit Condition
+1. Zero Cutoff: $$\varphi^{\star}_{ni} = (\frac{\sigma}{\rho^{\sigma - 1}}\frac{f_{ni}\tau_{ni}^{\sigma-1}}{R_n P^{\sigma-1}_{n}})^{\frac{1}{1-\sigma}}$$
+    + Export Decision - Threshold Type Indifferent
 
-### Higher input integration
-![Optimal range of in-house tasks](figures/input_integration.png)
 
-## Comparative statics
-The higher the transactions costs $\delta$, 
+## Zero Cutoff Condition
+Due to symmetry, the cutoff $\varphi^{\star}_{ni}$ is the same for all the $N$ foreign countries.
+$$\varphi^{\star}_{x} = (\frac{\sigma}{\rho^{\sigma - 1}}\frac{f_{x}\tau^{\sigma-1}}{R_n P^{\sigma-1}_{n}})^{\frac{1}{1-\sigma}}$$
+We can also write the cutoff for 'exporting' to the domestic market, with iceberg cost = 1
+$$\varphi^{\star} = \varphi^{\star}_{ii} = (\frac{\sigma}{\rho^{\sigma - 1}}\frac{f}{R_n P^{\sigma-1}_{n}})^{\frac{1}{1-\sigma}}$$
+Comparing the two:
+$$\frac{\varphi^{\star}_{x}}{\varphi^{\star}} = \tau (\frac{f_x}{f})^{\frac{1}{1-\sigma}} > 1$$
 
-### Lower number of firms
+## Selection into Exporting
+![](figures/profit.png)
 
-::: {layout="[[1], [1]]" style="text-align:center;"}
+## Free Entry Condition
+We can write out the Free Entry Condition: 
+$$\begin{align}
+ f_{e} = \bar{v_{i}} &= \int v_{i}(\varphi)g(\varphi) d \varphi \\
+ & =  \int_{\varphi \geq \varphi^{\star}} \frac{\pi_{ii}(\varphi) - f}{\delta} g(\varphi) d \varphi + N \int_{\varphi \geq \varphi^{\star}_{x}} \frac{\pi_{x}(\varphi) - f_x}{\delta} g(\varphi) d \varphi
+\end{align}$$
 
-![$\delta = 1.02$](figures/n_firms_1.png)
+with some algebra, we work out the functional form of $\pi_{ni}$:
+$$\begin{align}
+ f_{e} = \frac{f}{\delta} \int_{\varphi \geq \varphi^{\star}} [(\frac{\varphi}{\varphi^{\star}})^{\sigma-1} - 1] g(\varphi) d \varphi + N \frac{f_x}{\delta} \int_{\varphi \geq \varphi^{\star}_{x}} [(\frac{\varphi}{\varphi^{\star}_{x}})^{\sigma-1} - 1] g(\varphi)  d \varphi
+\end{align}$$
+The first term is domestic variable profit and the second foreign.
 
-![$\delta = 1.2$](figures/n_firms_2.png)
+## Two Conditions Must Hold - Determines $\varphi^{\star}_{x}$ and $\varphi^{\star}$
+Collecting the two conditions again:
 
-Number of active firms
+1. **Free Entry**: $$f_{e} = \frac{f}{\delta} \int_{\varphi \geq \varphi^{\star}} [(\frac{\varphi}{\varphi^{\star}})^{\sigma-1} - 1] g(\varphi) d \varphi + N \frac{f_x}{\delta} \int_{\varphi \geq \varphi^{\star}_{x}} [(\frac{\varphi}{\varphi^{\star}_{x}})^{\sigma-1} - 1] g(\varphi)  d \varphi$$
+    + Entry Decision - No Profit Condition
+    + Note: if $\varphi^{\star}$ increases, intergrate over a smaller range and samller values, so $\varphi^{\star}_{x}$ must decrease
 
-:::
+2. **(Derived from) Zero Cutoff**: $$\frac{\varphi^{\star}_{x}}{\varphi^{\star}} = \tau (\frac{f_x}{f})^{\frac{1}{1-\sigma}}$$
+    + Export Decision - Threshold Type Indifferent
+    + Note: if $\varphi^{\star}$ increases then $\varphi^{\star}_{x}$ must decrease
 
-## Discussion
-- Tractable and elegant model to study the structure of production chains, in particular, the boundaries of the firm. 
-- They have an extension with multiple upstream partners that generates realistic supply chain networks. 
-- The supply chain network structure is as rich as in the production networks literature, with ex-ante identical firms.  
+Therefore an equilibirum exists!
+
+## Two Conditions Must Hold - Determines $\varphi^{\star}_{x}$ and $\varphi^{\star}$
+![](figures/equilibrium.png)
+
+## The Effect of Liberalization - Lowering $\tau$
+What happens with liberalization?
+![](figures/liberalization.png)
+
+## The Effect of Liberalization - Lowering $\tau$
+What happens with liberalization?
+With import competition:
+
+- The cutoff productivity $\varphi^{\star}$ goes up
+    + the least productive firms exit
+    + average industry productivity increases
+- The cutoff productivity $\varphi^{\star}_{x}$ goes down
+    + more firms export
+    + average productivity conditional on exporting decreases
+- Within industry reallocation improves average productivity, pure selection  
