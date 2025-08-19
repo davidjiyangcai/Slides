@@ -21,36 +21,41 @@ layout: default
 ---
 
 ## Research question
+
 How does trade shape domestic industry?
 
 ## Environment
-- Let $i,n$ index countries
-- Single Factor of Production: Labour $L$, competitive labour market, inelastic supply
-- Dynamic model - we study stationary equilibrium
+
+-   Let $i,n$ index countries
+-   Single Factor of Production: Labour $L$, competitive labour market, inelastic supply
+-   Dynamic model - we study stationary equilibrium
 
 ## Firms - Heterogenous in Productivity
+
 **Firm Decisions**
 
-1. Sunk $f_e$ units of labor to set up
-2. Observe permenant productivity draw $\varphi$
-    + from exogenous distribution $g_i(\varphi)$ 
-3. Firm choose whether to produce or exit, if produce, whether to export or not
-    + per period, to sell to each market $n$, firm pays a fixed cost of $f_{ni}$ in labor
-      + equivalent to paying an upfront entry cost 
-    + additionally, iceberg trade cost $\tau_{ni}$
-      + need to send $\tau_{ni}$ unit from $i$ to sell 1 unit in $n$
+1.  Sunk $f_e$ units of labor to set up
+2.  Observe permenant productivity draw $\varphi$
+    -   from exogenous distribution $g_i(\varphi)$
+3.  Firm choose whether to produce or exit, if produce, whether to export or not
+    -   per period, to sell to each market $n$, firm pays a fixed cost of $f_{ni}$ in labor
+        -   equivalent to paying an upfront entry cost
+    -   additionally, iceberg trade cost $\tau_{ni}$
+        -   need to send $\tau_{ni}$ unit from $i$ to sell 1 unit in $n$
 
 Each period, there is an exogenous $\delta$ probability of firm death
 
 ## Firms - Production
+
 Linear Production Function: $q = \varphi l$
 
-- MC: $\frac{w}{\varphi} = \frac{1}{\varphi}$
-    + constant
-    + wage $w$ normalized to 1
-      + will be equalized across symmetrical countries
+-   MC: $\frac{w}{\varphi} = \frac{1}{\varphi}$
+    -   constant
+    -   wage $w$ normalized to 1
+        -   will be equalized across symmetrical countries
 
 ## Demand - CES
+
 **Preference:** $C_n = [\int_{\omega \in \Sigma_n} c_n(\omega)^{\rho} d\omega]^{\frac{1}{\rho}}$, with $0<\rho<1$
 
 **Price Index:** $P_n = [\int_{\omega \in \Sigma_n} c_n(\omega)^{1-\sigma} d\omega]^{\frac{1}{1-\sigma}}$, with $\sigma = \frac{1}{1-\rho} >1$, i.e. the elasticity of substitution
@@ -60,110 +65,99 @@ Price Index is defined such that $C_n = R_n/P_n$, converting total revenue = tot
 Consumer optimization gives us demand: $c_n(\omega) =(\frac{p_n(\omega)}{P_n})^{-\sigma} (\frac{R_n}{P_n})$
 
 ## Solving the Model
-1. Maximize profit in each market
-2. Given 1, decide on entry for each market
-3. Given 2, decide on whether enter or not as a firm
-4. Solve for equlibirums using the firm decisions from 3 by aggregating and impose market clearing conditions
 
-
+1.  Maximize profit in each market
+2.  Given 1, decide on entry for each market
+3.  Given 2, decide on whether enter or not as a firm
+4.  Solve for equlibirums using the firm decisions from 3 by aggregating and impose market clearing conditions
 
 ## Firm Maximization
-Firms with productivity $\varphi$ from $i$ maxmizes profit in $n$
- $$\max_{p(\varphi)}  \;  \pi_{ni}(\varphi) - f_{ni}$$  i.e.
- $$\max_{p(\varphi)}  \;  p(\varphi)\tau_{ni}c_n(\varphi) - \frac{\tau_{ni}c_n(\varphi)}{\varphi} - f_{ni}$$
-FOC gives Inverse Elasticity Pricing: $p(\varphi) = \frac{1}{1-\frac{1}{\sigma}} \frac{1}{\varphi} = \frac{1}{\rho} \frac{1}{\varphi}$
 
-1. $c_n$ demand from before
+Firms with productivity $\varphi$ from $i$ maxmizes profit in $n$ $$\max_{p(\varphi)}  \;  \pi_{ni}(\varphi) - f_{ni}$$ i.e. $$\max_{p(\varphi)}  \;  p(\varphi)\tau_{ni}c_n(\varphi) - \frac{\tau_{ni}c_n(\varphi)}{\varphi} - f_{ni}$$ FOC gives Inverse Elasticity Pricing: $p(\varphi) = \frac{1}{1-\frac{1}{\sigma}} \frac{1}{\varphi} = \frac{1}{\rho} \frac{1}{\varphi}$
 
-2. $p(\varphi)$ is gate price at $i$, price charged is $p_{ni} = p(\varphi)\tau_{ni}$
+1.  $c_n$ demand from before
+
+2.  $p(\varphi)$ is gate price at $i$, price charged is $p_{ni} = p(\varphi)\tau_{ni}$
 
 ## Exporting Decision
+
 Variable Profit increase in $p(\varphi)$, there exist a threshold $\varphi^{\star}_{ni}$ such that the firm is indifferent to enter $n$
 
 ![Threshold Productivity](figures/entry.png)
 
 ## Exporting Decision - Comparative Statics
-We can solve for $\varphi^{\star}_{ni}$ explicitly, plug the pricing equation and demand into the variable profit and we can obtain:
-$$\varphi^{\star}_{ni} = (\frac{\sigma}{\rho^{\sigma - 1}}\frac{f_{ni}\tau_{ni}^{\sigma-1}}{R_n P^{\sigma-1}_{n}})^{\frac{1}{1-\sigma}}$$
-increasing in trade costs. (This is useful later).
+
+We can solve for $\varphi^{\star}_{ni}$ explicitly, plug the pricing equation and demand into the variable profit and we can obtain: $$\varphi^{\star}_{ni} = (\frac{\sigma}{\rho^{\sigma - 1}}\frac{f_{ni}\tau_{ni}^{\sigma-1}}{R_n P^{\sigma-1}_{n}})^{\frac{1}{1-\sigma}}$$ increasing in trade costs. (This is useful later).
 
 ## Entry Decision
-We can now determine the firm value. Given a $\varphi$, the per period profit across market is
-$$ \pi_{i}(\varphi) = \sum_{n}1[\varphi \geq \varphi^{\star}_{ni} ][\pi_{ni}(\varphi) - f_{ni}]$$
-We can then discount this value and write the steady state firm value as:
-$$ v_{i}(\varphi) = \max \{ 0,\frac{\pi_{i}(\varphi)}{\delta} \}$$
 
-Before setting up the firm, the expected firm value is therefore:
-$$ \bar{v_{i}} = \int v_{i}(\varphi)g_{i}(\varphi)d \varphi$$
+We can now determine the firm value. Given a $\varphi$, the per period profit across market is $$ \pi_{i}(\varphi) = \sum_{n}1[\varphi \geq \varphi^{\star}_{ni} ][\pi_{ni}(\varphi) - f_{ni}]$$ We can then discount this value and write the steady state firm value as: $$ v_{i}(\varphi) = \max \{ 0,\frac{\pi_{i}(\varphi)}{\delta} \}$$
 
+Before setting up the firm, the expected firm value is therefore: $$ \bar{v_{i}} = \int v_{i}(\varphi)g_{i}(\varphi)d \varphi$$
 
 ## General Equilibrium - Basically
-1. N+1 symmetric countries
-2. $f_x = f_{ni}$ for $n \neq i$ and $f = f_{ii}$
-3. $\tau = \tau_{ni}$ for $n \neq i$ and $1 = \tau_{ii}$
 
+1.  N+1 symmetric countries
+2.  $f_x = f_{ni}$ for $n \neq i$ and $f = f_{ii}$
+3.  $\tau = \tau_{ni}$ for $n \neq i$ and $1 = \tau_{ii}$
 
 ## General Equilibrium - Basically
+
 Two conditions must hold
 
-1. Free Entry: $$ \bar{v_{i}} = f_{e} $$
-    + Entry Decision - No Profit Condition
-1. Zero Cutoff: $$\varphi^{\star}_{ni} = (\frac{\sigma}{\rho^{\sigma - 1}}\frac{f_{ni}\tau_{ni}^{\sigma-1}}{R_n P^{\sigma-1}_{n}})^{\frac{1}{1-\sigma}}$$
-    + Export Decision - Threshold Type Indifferent
-
+1.  Free Entry: $$ \bar{v_{i}} = f_{e} $$
+    -   Entry Decision - No Profit Condition
+2.  Zero Cutoff: $$\varphi^{\star}_{ni} = (\frac{\sigma}{\rho^{\sigma - 1}}\frac{f_{ni}\tau_{ni}^{\sigma-1}}{R_n P^{\sigma-1}_{n}})^{\frac{1}{1-\sigma}}$$
+    -   Export Decision - Threshold Type Indifferent
 
 ## Zero Cutoff Condition
-Due to symmetry, the cutoff $\varphi^{\star}_{ni}$ is the same for all the $N$ foreign countries.
-$$\varphi^{\star}_{x} = (\frac{\sigma}{\rho^{\sigma - 1}}\frac{f_{x}\tau^{\sigma-1}}{R_n P^{\sigma-1}_{n}})^{\frac{1}{1-\sigma}}$$
-We can also write the cutoff for 'exporting' to the domestic market, with iceberg cost = 1
-$$\varphi^{\star} = \varphi^{\star}_{ii} = (\frac{\sigma}{\rho^{\sigma - 1}}\frac{f}{R_n P^{\sigma-1}_{n}})^{\frac{1}{1-\sigma}}$$
-Comparing the two:
-$$\frac{\varphi^{\star}_{x}}{\varphi^{\star}} = \tau (\frac{f_x}{f})^{\frac{1}{1-\sigma}} > 1$$
+
+Due to symmetry, the cutoff $\varphi^{\star}_{ni}$ is the same for all the $N$ foreign countries. $$\varphi^{\star}_{x} = (\frac{\sigma}{\rho^{\sigma - 1}}\frac{f_{x}\tau^{\sigma-1}}{R_n P^{\sigma-1}_{n}})^{\frac{1}{1-\sigma}}$$ We can also write the cutoff for 'exporting' to the domestic market, with iceberg cost = 1 $$\varphi^{\star} = \varphi^{\star}_{ii} = (\frac{\sigma}{\rho^{\sigma - 1}}\frac{f}{R_n P^{\sigma-1}_{n}})^{\frac{1}{1-\sigma}}$$ Comparing the two: $$\frac{\varphi^{\star}_{x}}{\varphi^{\star}} = \tau (\frac{f_x}{f})^{\frac{1}{1-\sigma}} > 1$$
 
 ## Selection into Exporting
+
 ![](figures/profit.png)
 
 ## Free Entry Condition
-We can write out the Free Entry Condition: 
-$$\begin{align}
+
+We can write out the Free Entry Condition: $$\begin{align}
  f_{e} = \bar{v_{i}} &= \int v_{i}(\varphi)g(\varphi) d \varphi \\
  & =  \int_{\varphi \geq \varphi^{\star}} \frac{\pi_{ii}(\varphi) - f}{\delta} g(\varphi) d \varphi + N \int_{\varphi \geq \varphi^{\star}_{x}} \frac{\pi_{x}(\varphi) - f_x}{\delta} g(\varphi) d \varphi
 \end{align}$$
 
-with some algebra, we work out the functional form of $\pi_{ni}$:
-$$\begin{align}
+with some algebra, we work out the functional form of $\pi_{ni}$: $$\begin{align}
  f_{e} = \frac{f}{\delta} \int_{\varphi \geq \varphi^{\star}} [(\frac{\varphi}{\varphi^{\star}})^{\sigma-1} - 1] g(\varphi) d \varphi + N \frac{f_x}{\delta} \int_{\varphi \geq \varphi^{\star}_{x}} [(\frac{\varphi}{\varphi^{\star}_{x}})^{\sigma-1} - 1] g(\varphi)  d \varphi
-\end{align}$$
-The first term is domestic variable profit and the second foreign.
+\end{align}$$ The first term is domestic variable profit and the second foreign.
 
 ## Two Conditions Must Hold - Determines $\varphi^{\star}_{x}$ and $\varphi^{\star}$
+
 Collecting the two conditions again:
 
-1. **Free Entry**: $$f_{e} = \frac{f}{\delta} \int_{\varphi \geq \varphi^{\star}} [(\frac{\varphi}{\varphi^{\star}})^{\sigma-1} - 1] g(\varphi) d \varphi + N \frac{f_x}{\delta} \int_{\varphi \geq \varphi^{\star}_{x}} [(\frac{\varphi}{\varphi^{\star}_{x}})^{\sigma-1} - 1] g(\varphi)  d \varphi$$
-    + Entry Decision - No Profit Condition
-    + Note: if $\varphi^{\star}$ increases, intergrate over a smaller range and samller values, so $\varphi^{\star}_{x}$ must decrease
-
-2. **(Derived from) Zero Cutoff**: $$\frac{\varphi^{\star}_{x}}{\varphi^{\star}} = \tau (\frac{f_x}{f})^{\frac{1}{1-\sigma}}$$
-    + Export Decision - Threshold Type Indifferent
-    + Note: if $\varphi^{\star}$ increases then $\varphi^{\star}_{x}$ must decrease
+1.  **Free Entry**: $$f_{e} = \frac{f}{\delta} \int_{\varphi \geq \varphi^{\star}} [(\frac{\varphi}{\varphi^{\star}})^{\sigma-1} - 1] g(\varphi) d \varphi + N \frac{f_x}{\delta} \int_{\varphi \geq \varphi^{\star}_{x}} [(\frac{\varphi}{\varphi^{\star}_{x}})^{\sigma-1} - 1] g(\varphi)  d \varphi$$
+    -   Entry Decision - No Profit Condition
+    -   Note: if $\varphi^{\star}$ increases, intergrate over a smaller range and samller values, so $\varphi^{\star}_{x}$ must decrease
+2.  **(Derived from) Zero Cutoff**: $$\frac{\varphi^{\star}_{x}}{\varphi^{\star}} = \tau (\frac{f_x}{f})^{\frac{1}{1-\sigma}}$$
+    -   Export Decision - Threshold Type Indifferent
+    -   Note: if $\varphi^{\star}$ increases then $\varphi^{\star}_{x}$ must decrease
 
 Therefore an equilibirum exists!
 
 ## Two Conditions Must Hold - Determines $\varphi^{\star}_{x}$ and $\varphi^{\star}$
+
 ![](figures/equilibrium.png)
 
 ## The Effect of Liberalization - Lowering $\tau$
-What happens with liberalization?
-![](figures/liberalization.png)
+
+What happens with liberalization? ![](figures/liberalization.png)
 
 ## The Effect of Liberalization - Lowering $\tau$
-What happens with liberalization?
-With import competition:
 
-- The cutoff productivity $\varphi^{\star}$ goes up
-    + the least productive firms exit
-    + average industry productivity increases
-- The cutoff productivity $\varphi^{\star}_{x}$ goes down
-    + more firms export
-    + average productivity conditional on exporting decreases
-- Within industry reallocation improves average productivity, pure selection  
+What happens with liberalization? With import competition:
+
+-   The cutoff productivity $\varphi^{\star}$ goes up
+    -   the least productive firms exit
+    -   average industry productivity increases
+-   The cutoff productivity $\varphi^{\star}_{x}$ goes down
+    -   more firms export
+    -   average productivity conditional on exporting decreases
+-   Within industry reallocation improves average productivity, pure selection
